@@ -7,13 +7,13 @@
   <link href="css/footer.css" rel="stylesheet">
   <link href="css/form.css" rel="stylesheet">
   <title>Document</title>
-</head>
+</head> 
 <body>
-  <header>
+
   <?php 
     require_once('header.html');
   ?>
-  </header>
+
   <div class="title">
     <h1>Contactez-nous</h1>
     <span class="horizontal"></span>
