@@ -18,7 +18,7 @@
     <h1>Contactez-nous</h1>
     <span class="horizontal"></span>
   </div>
-  </div>
+  
   <div>
     <p class="contact_us">Service client au top à l'écoute du lundi au vendredi 
     <span class="highlight">de 9h à 12h00 / 13H45 - 17H45 </span>
