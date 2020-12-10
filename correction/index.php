@@ -1,5 +1,5 @@
 
-  <form action="index.php" method="post">
+  <form action="submit.php" method="post">
     <div class="category">
       <label for="name">NOM:</label>
       <input type="text" id="surname" name="surname" placeholder="Nom" required>
