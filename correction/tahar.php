@@ -91,15 +91,7 @@ function antispam($nom_champ, $type_email=false) {
       </div>
     </div>
   </form>
-  <!-- <footer>
-    <?php 
-    //   require_once('footer.html');
-    ?>
-  </footer> -->
-</body>
-</html>
-  
-    <?php
+  <?php
     if(isset($_POST['message'] )){
         $entete  = 'MIME-Version: 1.0' . "\r\n";
         $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
@@ -120,5 +112,12 @@ function antispam($nom_champ, $type_email=false) {
         }
     }
     ?>
+  <!-- <footer>
+    <?php 
+    //   require_once('footer.html');
+    ?>
+  </footer> -->
 </body>
 </html>
+  
+    
