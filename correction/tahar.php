@@ -1,6 +1,17 @@
 
-
-
+<?php
+function antispam($nom_champ, $type_email=false) {
+	$value = input_filter(
+		INPUT_POST,
+		$emailTo, 
+		($type_email) ? FILTER_SANITIZE_EMAIL : FILTER_SANITIZE_STRING
+	);
+	if($value === false) {
+		exit("Champ $emailTo non valide");
+	}
+	return $value;
+}
+?>
   <!DOCTYPE html>
 <html lang="fr">
 <head>
