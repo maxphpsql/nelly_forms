@@ -84,3 +84,33 @@
   </footer>
 </body>
 </html>
+<?php 
+//Pour définir chaque input du formulaire, ajouter le signe de dollar devant
+var_dump($_POST);
+$nom = $_GET['nom'];
+$prenom = $_GET['prenom'];
+$email = $_GET['email'];
+$phone = $_GET['phone'];
+    
+$msg = "Nom:\t$nom\n";
+$msg .= "prenom:\t$prenom\n";
+$msg .= "E-Mail:\t$email\n";
+$msg .= "Telephone:\t$phone\n";
+$msg .= ":\t$choix\n";
+    
+//Pourait continuer ainsi jusqu'à la fin du formulaire
+$recipient = "kaendesign@gmail.com";
+$subject = "Formulaire";
+$mailheaders = "From: Mon test de formulaire<> \n";
+$mailheaders .= "Reply-To: $email\n\n";
+
+mail('kaendesign@gmail.com', $subject, $msg, $mailheaders);
+
+echo "<HTML><HEAD>";
+echo "<TITLE>Formulaire envoyer!</TITLE></HEAD><BODY>";
+echo "<H1 align=center>Merci, $nom </H1>";
+echo "<P align=center>";
+echo "Votre formulaire à bien été envoyé !</P>";
+echo "</BODY></HTML>";
+
+?>
