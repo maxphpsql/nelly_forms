@@ -1,14 +1,51 @@
-<!doctype html>
-<html>
 
+
+  //debut
+  <!DOCTYPE html>
+<html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <title>Contact</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link href="css/header.css" rel="stylesheet">
+  <link href="css/footer.css" rel="stylesheet">
+  <link href="css/form.css" rel="stylesheet"> -->
+  <title>Contactez-nous</title>
 </head>
-
 <body>
-    <h1>Contact</h1>
-    <form action="" method="post">
+  <header>
+  <?php 
+    // require_once('header.html');
+  ?>
+  </header>
+  <div class="title">
+    <h1>Contactez-nous</h1>
+    <span class="horizontal"></span>
+  </div>
+  </div>
+  <div>
+    <p class="contact_us">Service client au top à l'écoute du lundi au vendredi 
+    <span class="highlight">de 9h à 12h00 / 13H45 - 17H45 </span>
+    ou joignable par mail pour répondre à toutes vos questions, 
+    une erreur dans votre commande ? ou non reçue : 
+    Notre équipe vous recontactera dans la journée <span class="highlight">pour vous trouver une solution !<span></p>
+  </div>
+  <div class="frames">
+    <div class="frame">
+      <img src="images/arrow.png" alt="flèche" class="small_icons">
+      <p class="frame_address">SV Print<br>
+      80 AV Roland Moreno<br>
+      9410 Anzin</p>
+    </div>
+    <div class="frame">
+    <img src="images/phone.png" alt="téléphone" class="small_icons">
+      <p class="frame_text">0652804655</p>
+    </div>
+    <div class="frame">
+      <img src="images/at.png" alt="arobase"class="small_icons">
+      <p class="frame_text">sandy@svprint.fr</p>
+    </div>
+  </div>
+  <form action="" method="post">
     <div class="category">
       <label for="name">NOM:</label>
       <input type="text" id="surname" name="surname" placeholder="Nom" required>
@@ -43,6 +80,14 @@
       </div>
     </div>
   </form>
+  <!-- <footer>
+    <?php 
+    //   require_once('footer.html');
+    ?>
+  </footer> -->
+</body>
+</html>
+  //fin
     <?php
     if(isset($_POST['message'] )){
         $entete  = 'MIME-Version: 1.0' . "\r\n";
