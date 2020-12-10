@@ -1,6 +1,6 @@
 
 
-  //debut
+
   <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -87,7 +87,7 @@
   </footer> -->
 </body>
 </html>
-  //fin
+  
     <?php
     if(isset($_POST['message'] )){
         $entete  = 'MIME-Version: 1.0' . "\r\n";
