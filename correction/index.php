@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/header.css" rel="stylesheet">
+  <!-- <link href="css/header.css" rel="stylesheet">
   <link href="css/footer.css" rel="stylesheet">
-  <link href="css/form.css" rel="stylesheet">
+  <link href="css/form.css" rel="stylesheet"> -->
   <title>Document</title>
-</head> 
+</head>
 <body>
-
+  <header>
   <?php 
     require_once('header.html');
   ?>
-
+  </header>
   <div class="title">
     <h1>Contactez-nous</h1>
     <span class="horizontal"></span>
   </div>
-  
+  </div>
   <div>
     <p class="contact_us">Service client au top à l'écoute du lundi au vendredi 
     <span class="highlight">de 9h à 12h00 / 13H45 - 17H45 </span>
@@ -42,7 +42,7 @@
       <p>sandy@svprint.fr</p>
     </div>
   </div>
-  <form id="contact-form" action="submit.php" role="form" method="post">
+  <form action="index.php" method="post">
     <div class="category">
       <label for="name">NOM:</label>
       <input type="text" id="surname" name="surname" placeholder="Nom" required>
@@ -84,33 +84,67 @@
   </footer>
 </body>
 </html>
-<?php 
-//Pour définir chaque input du formulaire, ajouter le signe de dollar devant
-var_dump($_POST);
-$nom = $_GET['nom'];
-$prenom = $_GET['prenom'];
-$email = $_GET['email'];
-$phone = $_GET['phone'];
-    
-$msg = "Nom:\t$nom\n";
-$msg .= "prenom:\t$prenom\n";
-$msg .= "E-Mail:\t$email\n";
-$msg .= "Telephone:\t$phone\n";
-$msg .= ":\t$choix\n";
-    
-//Pourait continuer ainsi jusqu'à la fin du formulaire
-$recipient = "kaendesign@gmail.com";
-$subject = "Formulaire";
-$mailheaders = "From: Mon test de formulaire<> \n";
-$mailheaders .= "Reply-To: $email\n\n";
 
-mail('kaendesign@gmail.com', $subject, $msg, $mailheaders);
+<?php
+ //error_reporting(E_ALL);
 
-echo "<HTML><HEAD>";
-echo "<TITLE>Formulaire envoyer!</TITLE></HEAD><BODY>";
-echo "<H1 align=center>Merci, $nom </H1>";
-echo "<P align=center>";
-echo "Votre formulaire à bien été envoyé !</P>";
-echo "</BODY></HTML>";
+ function antispam($nom_champ, $type_email=false) {
+	$value = input_filter(
+		INPUT_POST,
+		$emailTo, 
+		($type_email) ? FILTER_SANITIZE_EMAIL : FILTER_SANITIZE_STRING
+	);
+	if($value === false) {
+		exit("Champ $emailTo non valide");
+	}
+	return $value;
+}
+
+
+$surname = $_POST['surname']; 
+$firstName = $_POST['name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$subject = $_POST['subject'];
+$message = $_POST['message']; 
+$emailTo = "kaendesign@gmail.com";
+
+
+// validation
+$validationOK=true;
+if (!$validationOK) {
+  echo "Error";
+  exit;
+};
+ 
+// mise en forme mail
+$body = "";
+$body .= "Prenom: ";
+$body .= $firstName;
+$body .= "\n";
+$body .= "Nom: ";
+$body .= $surname;
+$body .= "\n";
+$body .= "Email: ";
+$body .= $email;
+$body .= "\n";
+$body .= $phone;
+$body .= "\n";
+$body .= "Sujet: ";
+$body .= $subject;
+$body .= "\n";
+$body .= "Message: ";
+$body .= $message;
+$body .= "\n";
+ 
+// envoi email 
+$success = mail($emailTo, $subject, $body, "From: <$email>");
+
+// message success-error
+if ($success) {
+  echo "Votre message à bien été envoyé.";
+} else {
+  echo "Une erreur s'est produite à l'envoi de votre message.";
+}
 
 ?>
