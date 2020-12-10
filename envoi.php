@@ -14,7 +14,6 @@ function antispam($nom_champ, $type_email=false) {
 	);
 	if($value === false) {
 		exit("Champ $emailTo non valide");
-		// On se casse !
 	}
 	return $value;
 }
@@ -27,12 +26,12 @@ function antispam($nom_champ, $type_email=false) {
 
 $emailFrom = $_POST['email']; 
 $emailTo = "kaendesign@gmail.com";
-$prenom = $_POST['prenom'];
-$nom = $_POST['nom']; 
+$prenom = $_POST['surname'];
+//$nom = $_POST['name']; 
 $email = $_POST['email'];
-$subject = $_POST['sujet'];
+$subject = $_POST['subject'];
 $message = $_POST['message']; 
-$message = $_POST['telephone']; 
+$message = $_POST['phone']; 
 
 // validation
 $validationOK=true;
@@ -63,7 +62,6 @@ $body .= "\n";
  
 // envoi email 
 $success = mail($emailTo, $subject, $body, "From: <$emailFrom>");
-
 // message success-error
 if ($success){
   echo "Votre message à bien été envoyé.";
