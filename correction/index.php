@@ -42,7 +42,7 @@
       <p>sandy@svprint.fr</p>
     </div>
   </div>
-  <form action="" method="post">
+  <form id="contact-form" action="submit.php" role="form" method="post">
     <div class="category">
       <label for="name">NOM:</label>
       <input type="text" id="surname" name="surname" placeholder="Nom" required>
